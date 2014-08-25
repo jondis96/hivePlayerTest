@@ -212,7 +212,7 @@ function detectHiveClient(callback) {
 		peertv_state = ""; // to avoid using an undefined var causing expections
 	}
 	$.support.cors = true;
-    $.getJSON('http://127.0.0.1:8899/version.json')
+    $.getJSON('https://127.0.0.1:8900/version.json')
 	.done( function(data) {
 		log("Received client version: " + data.version + " in state " + data.state);
 	    if (callback)
@@ -228,7 +228,7 @@ function detectHiveClient(callback) {
     	if(window.location.protocol.indexOf("https") > -1) {
 			// try to get over SSL
 			var err = textStatus_1 + ", " + err_1;
-			error( "1- Request to 'http://127.0.0.1:8899/version.json' is Failed: " + err );
+			error( "1- Request to 'https://127.0.0.1:8900/version.json' is Failed: " + err );
 	    	$.getJSON('https://localhost.hivestreaming.com:8900/version.json')
 		    .done( function(data) {
 		      	if (callback)
