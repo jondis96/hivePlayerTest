@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\hive-players.js" />
+    <Content Include="playerDemoNoStatus.html" />
     <Content Include="playerDemo.html" />
     <Content Include="scripts\ai.js" />
     <Content Include="Web.config" />
