@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hive Demo Player</title>
+    <meta name="description" content="Hive Demo Player">
+    <script src="//127.0.0.1:8900/version.js"></script>
+    <!-- JQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Hive font -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800,800italic,700italic,600italic,400italic,300italic" media="all" rel="stylesheet" />
+    <script src="//hivewebassets.blob.core.windows.net/font/hive_font_ie7.js"></script>
+    <link href="//hivewebassets.blob.core.windows.net/font/hive_font.css" media="all" rel="stylesheet" />
+    <!--[if lt IE 8]><!-->
+    <link rel="stylesheet" href="//hivewebassets.blob.core.windows.net/font/hive_font_ie7.css">
+    <!--<![endif]-->
+    <!-- The hive players library -->
+    <script src="/js/hive-players.js" type="text/javascript"></script>
+
+    <script>
+    $(document).ready(function () {
+        // Detecting IE
+        var oldIE;
+        if ($('html').is('.ie6, .ie7, .ie8, .ie9')) {
+            log("IE 9 or older found. Aborting since this page is not compatible with IE 9 or older");
+            displayErrorMsg("This player does not support Internet Explorer 9 or older. Please use a new Internet Explorer or another browser");
+
+            oldIE = true;
+            return;
+        }
+        $.support.cors = true;
+        var publishUrl = "http://hivemediaservices.streaming.mediaservices.windows.net/24f80c9c-eef7-4bbe-b34f-106b8e29216d/be6a035a-b871-4a69-9911-5ab8aa555c06.ism/manifest;"
+        var healthyState = "True";
+        var status = "Started";
+
+        var hivePlayerDiv = $("#hivePlayerDiv");
+
+        if (status != "Started") {
+            $("#status").attr("style", "color:#880000; font-size: 70%;");
+            $("#status").html("Status: " + status + ", will autorestart within 5 minutes");
+        }
+        else {
+            $("#status").attr("style", "color:#008800; font-size: 70%;");
+            $("#status").html("Status: " + status);
+        }
+
+
+        $("#publishUrl").html("Stream URL: " + publishUrl);
+        if (healthyState != "True") {
+            $("#healthyState").attr("style", "color:#880000; font-size: 70%;");
+        }
+        else {
+            $("#healthyState").attr("style", "color:#008800; font-size: 70%;");
+        }
+        $("#healthyState").html("Healthy: " + healthyState);
+        checkHiveInstalled(function (state) {
+            createPlayer($("#core_player"), "smooth", "silverlight", true, "https://api.hivestreaming.com/v1/events/wildcard/9001/7/39/Jd2nYRJcmwOPGTn1?ref=" + publishUrl);
+        });
+    });
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1><i style="color:#ed4223; font-size: 90%;" class="icon-hive-logo"></i> Hive Demo Player</h1>
+        </div>
+        <p>
+            <div id="core_player" style="width: 640px; height: 300px; background-image: url(home_bg-640x300.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;"></div>
+        </p>
+    </div>
+</body>
+</html>
