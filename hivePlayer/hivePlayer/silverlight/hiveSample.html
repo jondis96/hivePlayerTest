@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sample Hive Player</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/js/hive-players-q3.js" type="text/javascript"></script>  
+</head>
+<body>
+    <div class="hive-player player2" id="player2"
+         data-background="http://www.wamsinc.com/wp-content/uploads/cloud-services-sidebar.png"
+         data-playlabel="Play"
+         data-player-draggable="false"
+         data-stream='{ "streams" : [
+         { "manifest": "https://api.hivestreaming.com/v1/events/wildcard/9001/7/39/Jd2nYRJcmwOPGTn1?ref=http://hivemediaservices.streaming.mediaservices.windows.net/24f80c9c-eef7-4bbe-b34f-106b8e29216d/be6a035a-b871-4a69-9911-5ab8aa555c06.ism/manifest",
+           "streamType" : "smooth",
+           "player" : "silverlight",
+           "silverlightMinVersion": "5.0.61118.0",
+           "useHive": true
+         }
+     ]
+     }'>
+    </div>
+</body>
+</html>

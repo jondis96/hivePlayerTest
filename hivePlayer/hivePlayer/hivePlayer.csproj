@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="flash\default.html" />
+    <Content Include="html5\default.html" />
+    <Content Include="js\hive-players-q3.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -82,6 +84,8 @@
     <Content Include="playerDemoNoStatus.html" />
     <Content Include="playerDemo.html" />
     <Content Include="scripts\ai.js" />
+    <Content Include="silverlight\hiveSample.html" />
+    <Content Include="silverlight\sample.html" />
     <Content Include="silverlight\default.html" />
     <Content Include="Web.config" />
   </ItemGroup>
