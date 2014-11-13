@@ -66,7 +66,9 @@
   <ItemGroup>
     <Content Include="flash\default.html" />
     <Content Include="html5\default.html" />
+    <Content Include="js\hds.js" />
     <Content Include="js\hive-players-q3.js" />
+    <Content Include="js\swfobject_2.2.js.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
